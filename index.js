@@ -186,8 +186,8 @@ class RenderPDF {
         const chromeExec = this.options.chromeBinary || await this.detectChrome();
         this.log('Using', chromeExec);
         const commandLineOptions = [
-             '--headless', 
-             `--remote-debugging-port=${this.port}`, 
+             '--headless',
+             `--remote-debugging-port=${this.port}`,
              '--disable-gpu'
             ];
 
@@ -239,14 +239,11 @@ class RenderPDF {
             return 'chrome';
         }
         // macos
-        if (await this.isCommandExists('/Applications/Google\ Chrome Canary.app/Contents/MacOS/Google\ Chrome')) {
-            return '/Applications/Google\ Chrome Canary.app/Contents/MacOS/Google\ Chrome';
+        if (await this.isCommandExists('/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary')) {
+            return '/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary';
         }
-        if (await this.isCommandExists('/Applications/Google\ Chrome Dev.app/Contents/MacOS/Google\ Chrome')) {
-            return '/Applications/Google\ Chrome Dev.app/Contents/MacOS/Google\ Chrome';
-        }
-        if (await this.isCommandExists('/Applications/Google\ Chrome Beta.app/Contents/MacOS/Google\ Chrome')) {
-            return '/Applications/Google\ Chrome Beta.app/Contents/MacOS/Google\ Chrome';
+        if (await this.isCommandExists('/Applications/Google\ Chrome\ Beta.app/Contents/MacOS/Google\ Chrome\ Beta')) {
+            return '/Applications/Google\ Chrome\ Beta.app/Contents/MacOS/Google\ Chrome\ Beta';
         }
         if (await this.isCommandExists('/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome')) {
             return '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome';
