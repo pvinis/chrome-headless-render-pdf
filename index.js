@@ -84,18 +84,18 @@ class RenderPDF {
                 await LayerTree.enable();
 
                 await Page.navigate({url});
-                await Emulation.setVirtualTimePolicy({policy: 'pauseIfNetworkFetchesPending', budget: 5000});
+                // await Emulation.setVirtualTimePolicy({policy: 'pauseIfNetworkFetchesPending', budget: 5000});
 
                 const loaded = this.cbToPromise(Page.loadEventFired);
-                const jsDone = this.cbToPromise(Emulation.virtualTimeBudgetExpired);
+                // const jsDone = this.cbToPromise(Emulation.virtualTimeBudgetExpired);
 
                 await this.profileScope('Wait for load', async () => {
                     await loaded;
                 });
 
-                await this.profileScope('Wait for js execution', async () => {
-                    await jsDone;
-                });
+                // await this.profileScope('Wait for js execution', async () => {
+                    // await jsDone;
+                // });
 
                 await this.profileScope('Wait for animations', async () => {
                     await new Promise((resolve) => {
